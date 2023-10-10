@@ -20,9 +20,11 @@ public class View_All extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTable table;
-	private JTable table_1;
+	private JTable beneficiar;
+	private JTable det_factura;
 	JTable currentlyDisplayedTable;
+	private JTable factura;
+	private JTable produse;
 
 	/**
 	 * Launch the application.
@@ -61,17 +63,28 @@ public class View_All extends JFrame {
 				if (selectedOption.equals("beneficiar")) {
 					
 				  
-                  table.setVisible(true);
-                  currentlyDisplayedTable = table;
+                  beneficiar.setVisible(true);
+                  currentlyDisplayedTable = beneficiar;
                   
                    
                    
                 }
 				if (selectedOption.equals("det_factura")) {
-	            table_1.setVisible(true);
-	            currentlyDisplayedTable = table_1;
+	            det_factura.setVisible(true);
+	            currentlyDisplayedTable = det_factura;
 			} 
 				
+				
+				if (selectedOption.equals("factura")) {
+		            factura.setVisible(true);
+		            currentlyDisplayedTable = factura;
+				} 
+				
+				
+				if (selectedOption.equals("produse")) {
+		            produse.setVisible(true);
+		            currentlyDisplayedTable = produse;
+				} 
 		}});
 		
 		comboBox.setFocusable(false);
@@ -79,14 +92,13 @@ public class View_All extends JFrame {
 		comboBox.setBounds(46, 45, 203, 38);
 		contentPane.add(comboBox);
 		
-		JButton btnNewButton = new JButton("Show");
-		btnNewButton.setFocusPainted(false);
-		btnNewButton.setBorderPainted(false);
-		btnNewButton.setBounds(591, 47, 109, 35);
-		contentPane.add(btnNewButton);
+		JButton Show = new JButton("Show");
+		Show.setFocusPainted(false);
+		Show.setBounds(568, 47, 109, 35);
+		contentPane.add(Show);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
+		beneficiar = new JTable();
+		beneficiar.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null},
 			},
@@ -94,12 +106,12 @@ public class View_All extends JFrame {
 				"New column"
 			}
 		));
-		table.setBounds(46, 147, 641, 284);
-		contentPane.add(table);
-		currentlyDisplayedTable = table;
+		beneficiar.setBounds(46, 146, 631, 284);
+		contentPane.add(beneficiar);
+		currentlyDisplayedTable = beneficiar;
 		
-		table_1 = new JTable();
-		table_1.setModel(new DefaultTableModel(
+		det_factura = new JTable();
+		det_factura.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null},
 				{null, null},
@@ -108,8 +120,37 @@ public class View_All extends JFrame {
 				"New column", "New column"
 			}
 		));
-		table_1.setBounds(46, 146, 641, 285);
-		contentPane.add(table_1);
+		det_factura.setBounds(46, 146, 631, 285);
+		contentPane.add(det_factura);
+		
+		factura = new JTable();
+		factura.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column"
+			}
+		));
+		factura.setBounds(46, 147, 631, 284);
+		contentPane.add(factura);
+		
+		produse = new JTable();
+		produse.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column"
+			}
+		));
+		produse.setBounds(46, 147, 631, 284);
+		contentPane.add(produse);
 		
 		
 	}
