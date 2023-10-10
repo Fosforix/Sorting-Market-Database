@@ -24,6 +24,7 @@ public class View_All extends JFrame {
 	private JTable det_factura;
 	private JTable factura;
 	private JTable produse;
+	//DefaultTableModel model;
 	JTable currentlyDisplayedTable;
 
 	/**
@@ -60,12 +61,13 @@ public class View_All extends JFrame {
 		contentPane.add(comboBox);
 		
 		
-		
 		JButton Show = new JButton("Show");	
 		Show.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (comboBox.getSelectedItem().equals("beneficiar")) {
 					currentlyDisplayedTable.setVisible(false);
+					//model = (DefaultTableModel) beneficiar.getModel();
+				    //model.setValueAt("da",0, 0);
 					beneficiar.setVisible(true);
 	                currentlyDisplayedTable = beneficiar;
 				}
