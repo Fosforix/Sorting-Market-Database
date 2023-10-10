@@ -22,9 +22,9 @@ public class View_All extends JFrame {
 	private JPanel contentPane;
 	private JTable beneficiar;
 	private JTable det_factura;
-	JTable currentlyDisplayedTable;
 	private JTable factura;
 	private JTable produse;
+	JTable currentlyDisplayedTable;
 
 	/**
 	 * Launch the application.
@@ -54,45 +54,39 @@ public class View_All extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		JComboBox comboBox = new JComboBox();
-		comboBox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String selectedOption = (String) comboBox.getSelectedItem();
-				
-				
-				currentlyDisplayedTable.setVisible(false);
-				if (selectedOption.equals("beneficiar")) {
-					
-				  
-                  beneficiar.setVisible(true);
-                  currentlyDisplayedTable = beneficiar;
-                  
-                   
-                   
-                }
-				if (selectedOption.equals("det_factura")) {
-	            det_factura.setVisible(true);
-	            currentlyDisplayedTable = det_factura;
-			} 
-				
-				
-				if (selectedOption.equals("factura")) {
-		            factura.setVisible(true);
-		            currentlyDisplayedTable = factura;
-				} 
-				
-				
-				if (selectedOption.equals("produse")) {
-		            produse.setVisible(true);
-		            currentlyDisplayedTable = produse;
-				} 
-		}});
-		
 		comboBox.setFocusable(false);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"beneficiar", "det_factura", "factura", "produse"}));
 		comboBox.setBounds(46, 45, 203, 38);
 		contentPane.add(comboBox);
 		
-		JButton Show = new JButton("Show");
+		
+		
+		JButton Show = new JButton("Show");	
+		Show.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (comboBox.getSelectedItem().equals("beneficiar")) {
+					currentlyDisplayedTable.setVisible(false);
+					beneficiar.setVisible(true);
+	                currentlyDisplayedTable = beneficiar;
+				}
+				if (comboBox.getSelectedItem().equals("det_factura")) {
+					currentlyDisplayedTable.setVisible(false);
+				    det_factura.setVisible(true);
+	                currentlyDisplayedTable = det_factura;
+				}
+				if (comboBox.getSelectedItem().equals("factura")) {
+					currentlyDisplayedTable.setVisible(false);
+				    factura.setVisible(true);
+	                currentlyDisplayedTable = factura;
+	                
+				}	
+				if (comboBox.getSelectedItem().equals("produse")) {
+					currentlyDisplayedTable.setVisible(false);
+				    produse.setVisible(true);
+	                currentlyDisplayedTable = produse;
+				}	
+			}
+		});
 		Show.setFocusPainted(false);
 		Show.setBounds(568, 47, 109, 35);
 		contentPane.add(Show);
@@ -152,6 +146,9 @@ public class View_All extends JFrame {
 		produse.setBounds(46, 147, 631, 284);
 		contentPane.add(produse);
 		
-		
+		beneficiar.setVisible(false);
+		det_factura.setVisible(false);
+		factura.setVisible(false);
+		produse.setVisible(false);
 	}
 }
