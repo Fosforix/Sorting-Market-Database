@@ -24,7 +24,7 @@ public class View_All extends JFrame {
 	private JTable det_factura;
 	private JTable factura;
 	private JTable produse;
-	//DefaultTableModel model;
+	DefaultTableModel model;
 	JTable currentlyDisplayedTable;
 
 	/**
